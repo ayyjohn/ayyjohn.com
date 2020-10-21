@@ -5,6 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var environment = process.env.NODE_ENV
 var indexRouter = require('./routes/index');
 
 var app = express();
@@ -12,6 +13,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.set('env', environment)
 
 app.use(logger('dev'));
 app.use(express.json());
